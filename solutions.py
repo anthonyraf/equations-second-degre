@@ -41,24 +41,27 @@ def cherche_solutions(a,b,c):
 	"""
 	Fonction qui cherche la ou les solutions à une équation du second degré s'il en existe et la/les retourne.
 	"""
-	delta = calcule_delta(a,b,c)
-	if delta < 0:
-		print(f"L'équation {expression_trinome(a,b,c)} n'a pas de solution réelle.")
-		print("Elle n'a donc pas de forme factorisée")
+	if a != 0:
+		delta = calcule_delta(a,b,c)
+		if delta < 0:
+			print(f"L'équation {expression_trinome(a,b,c)} n'a pas de solution réelle.")
+			print("Elle n'a donc pas de forme factorisée")
 
-	elif delta == 0:
-		x0 = -b/2*a
-		print(f"L'équation {expression_trinome(a,b,c)} a une unique solution:\nx0 = {x0}\n")
-		signe = '-' if x0 < 0 else '+'
-		print(f"Sa forme factorisée est : (x {signe} {abs(x0)})²")
-	
-	elif delta > 0:
-		x1 = (-b-pow(delta,0.5))/(2*a)
-		x2 = (-b+pow(delta,0.5))/(2*a)
-		print(f"L'équation {expression_trinome(a,b,c)} a deux solutions distinctes:\nx1 = {x1}\tx2 = {x2}\n")
-		signe1 = '-' if -x1 < 0 else '+'
-		signe2 = '-' if -x2 < 0 else '+'
-		print(f"Sa forme factorisée est : (x {signe1} {abs(x1)})(x {signe2} {abs(x2)})\n")
+		elif delta == 0:
+			x0 = -b/2*a
+			print(f"L'équation {expression_trinome(a,b,c)} a une unique solution:\nx0 = {x0}\n")
+			signe = '-' if x0 < 0 else '+'
+			print(f"Sa forme factorisée est : (x {signe} {abs(x0)})²")
+
+		elif delta > 0:
+			x1 = (-b-pow(delta,0.5))/(2*a)
+			x2 = (-b+pow(delta,0.5))/(2*a)
+			print(f"L'équation {expression_trinome(a,b,c)} a deux solutions distinctes:\nx1 = {x1}\tx2 = {x2}\n")
+			signe1 = '-' if -x1 < 0 else '+'
+			signe2 = '-' if -x2 < 0 else '+'
+			print(f"Sa forme factorisée est : (x {signe1} {abs(x1)})(x {signe2} {abs(x2)})\n")
+	else:
+		print(f"C'est une équation premier degré.\nSa solution est: x = {-c/b}")
 
 
 if __name__ == '__main__':
